@@ -1,4 +1,3 @@
-
 clear
 echo Creating header...
 head=`echo $1`
@@ -35,10 +34,10 @@ fi
 
 echo "" >> $name
 
-cat $src | grep -E "^[void|unsigned|int|float|long|char|size_t].*)$" | sed 's/)$/);/'  >> $name
+cat $src | grep -E "^(void|unsigned|int|float|long|char|size_t).*)$" | sed 's/)$/);/'  >> $name
 
 if [ -e $src2 ]; then
-    cat $src2 | grep -E "^[void|unsigned|int|float|long|char|size_t].*)$" | sed 's/)/);/'  >> $name
+    cat $src2 | grep -E "^(void|unsigned|int|float|long|char|size_t).*)$" | sed 's/)/);/'  >> $name
 fi
 
 echo >> $name
